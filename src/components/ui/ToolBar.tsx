@@ -1,11 +1,10 @@
-import { useRef } from 'react';
-import { Search, FolderPlus, Upload } from 'lucide-react';
+import { FolderPlus } from 'lucide-react';
 import useFileHub from '@/hooks/useFileHub';
 
 export default function Toolbar() {
   try {
-    const { search, setSearch, addFolder, uploadFiles, currentFolderId, allFolders } = useFileHub();
-    const fileRef = useRef<HTMLInputElement>(null);
+    const { addFolder, allFolders } = useFileHub();
+    // const fileRef = useRef<HTMLInputElement>(null);
 
     const onFolder = () => {
       const name = prompt('新建文件夹名称:');
@@ -15,28 +14,28 @@ export default function Toolbar() {
       }
     };
 
-    const onUpload = () => {
-      fileRef.current?.click();
-    };
+    // const onUpload = () => {
+    //   fileRef.current?.click();
+    // };
 
-    const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (!e.target.files || e.target.files.length === 0) return;
-      console.log('[Toolbar] 选中文件数:', e.target.files.length);
-      console.log('[Toolbar] 当前文件夹id:', currentFolderId);
-      uploadFiles(e.target.files, currentFolderId);
-      e.target.value = '';
-      // 移除这行：setSearch(''); // 不要在这里清空搜索
-    };
+    // const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //   if (!e.target.files || e.target.files.length === 0) return;
+    //   console.log('[Toolbar] 选中文件数:', e.target.files.length);
+    //   console.log('[Toolbar] 当前文件夹id:', currentFolderId);
+    //   uploadFiles(e.target.files, currentFolderId);
+    //   e.target.value = '';
+    //   // 移除这行：setSearch(''); // 不要在这里清空搜索
+    // };
 
-    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      try {
-        const value = e.target.value;
-        console.log('搜索输入:', value);
-        setSearch(value); // 直接设置搜索值
-      } catch (error) {
-        console.error('搜索输入处理错误:', error);
-      }
-    };
+    // const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //   try {
+    //     const value = e.target.value;
+    //     console.log('搜索输入:', value);
+    //     setSearch(value); // 直接设置搜索值
+    //   } catch (error) {
+    //     console.error('搜索输入处理错误:', error);
+    //   }
+    // };
 
     return (
       <div className="toolbar">
