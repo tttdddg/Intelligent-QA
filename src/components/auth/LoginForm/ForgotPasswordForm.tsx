@@ -16,7 +16,7 @@ function ForgotPasswordForm({ onClose, onSuccess }: ForgotPasswordFormProps) {
   const [countdown, setCountdown] = useState(0);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const [isCodeVerified, setIsCodeVerified] = useState(false);
+  // const [isCodeVerified, setIsCodeVerified] = useState(false);
 
   useEffect(() => {
     if (countdown > 0) {
@@ -61,7 +61,7 @@ function ForgotPasswordForm({ onClose, onSuccess }: ForgotPasswordFormProps) {
     if (isSuccess) {
       setCountdown(60);
       setStep('verify');
-      setIsCodeVerified(false);
+      // setIsCodeVerified(false);
       setError(''); // 清除错误
     } else {
       // 根据不同的错误码提供不同的提示
@@ -129,7 +129,7 @@ function ForgotPasswordForm({ onClose, onSuccess }: ForgotPasswordFormProps) {
 
       setCountdown(60);
       setStep('reset');
-      setIsCodeVerified(false);
+      // setIsCodeVerified(false);
       setError(''); // 清除错误
       
       setTimeout(() => {

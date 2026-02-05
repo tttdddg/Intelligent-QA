@@ -5,7 +5,7 @@ import '@/assets/styles/HomePage.css';
 
 function Home(){
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const [displayText, setDisplayText] = useState('');
+  // const [displayText, setDisplayText] = useState('');
   const [typingVisible, setTypingVisible] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ function Home(){
 
       if (charIndex < targetText.length) {
         currentText += targetText[charIndex];
-        setDisplayText(currentText);
+        // setDisplayText(currentText);
         charIndex++;
       } else if (blinkCount < 6) {
         setTypingVisible(blinkCount % 2 === 0);
